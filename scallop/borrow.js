@@ -30,9 +30,7 @@ const client = await scallopSDK.createScallopClient();
 const walletAddress = scallopSDK.walletAddress
 
 //借的顆數
-const amount = 100;
-
-
+const amount = 1;
 
 /*
 # ┌────────────── 秒   0-59
@@ -44,10 +42,9 @@ const amount = 100;
 # │ │ │ │ │ │
 # │ │ │ │ │ │
 # * * * * * *
-
 */
 
-//五月30 8:29:59 借100顆 sca
+//五月30 8:29:59 借1顆 sca
 var bo = new CronJob("59 29 8 30 5 *", async function () {
     const r = await client.borrow("sca" , amount * 1000000000 , true , ob_id , ob_key , client.walletAddress);
-}, null, true);
+}, null, true , 'Asia/Taipei' );
