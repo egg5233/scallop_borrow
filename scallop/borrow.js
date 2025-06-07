@@ -1,6 +1,5 @@
 import { Scallop} from '@scallop-io/sui-scallop-sdk';
 import { SuiClient , getFullnodeUrl} from '@mysten/sui/client';
-import { Ed25519Keypair } from '@mysten/sui/keypairs/ed25519';
 import { CronJob } from 'cron';
 
 //錢包的註記詞
@@ -11,8 +10,6 @@ const ob_id = ""
 
 //債務本金鑰
 const ob_key = ""
-
-const keypair = Ed25519Keypair.deriveKeypair(mm);
 
 const suiClient = new SuiClient({
     url: getFullnodeUrl('mainnet')
@@ -26,8 +23,6 @@ const scallopSDK = new Scallop({
 });
 
 const client = await scallopSDK.createScallopClient();
-
-const walletAddress = scallopSDK.walletAddress
 
 //借的顆數
 const amount = 1;
